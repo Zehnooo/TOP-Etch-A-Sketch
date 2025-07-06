@@ -73,13 +73,18 @@ h6 {
 #__next {
   isolation: isolate;
 }
+/* End Reset */
 
 .grid-container {
-  max-width: 1800px;
+  width: 480px;
+  height: 400px;
   display: flex;
+  flex-flow: row wrap;
 }
 
 .tile {
-  border: 2px solid black;
-  height: auto;
+  border: 1px solid grey;
+  background: none;
+  width: 30px;
+  height: 30px;
 }
