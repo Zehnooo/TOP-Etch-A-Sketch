@@ -1,4 +1,6 @@
 const colors = ["rgba(250, 231, 235, .1)","rgba(255, 212, 229, .1)","rgba(212, 255, 234, .1)","rgba(238, 203, 255, .1)","rgba(254, 255, 163, .1)","rgba(219, 220, 255, .1)"];
+const floaterColors = ["#cdb4dbff","#ffc8ddff","#ffafccff", "#bde0feff","#a2d2ffff"];
+
 const body = document.querySelector(".container");
 const grid = document.querySelector(".grid-container");
 let defaultGridSize = 16;
@@ -20,6 +22,19 @@ newGridBtn.addEventListener("click", () => {
   }
   buildGrid(gridSizeInput);
 });
+
+for (let i = 0; i < 20; i++){
+  const floaters = document.createElement("div");
+  floaters.classList.add("floater");
+  const randomNumTop = Math.floor(Math.random() * (window.innerHeight - 150));
+  const randomNumLeft = Math.floor(Math.random() * (window.innerWidth - 150));
+  const randomNumColor = Math.floor(Math.random() * colors.length);
+  const randomColor = floaterColors[randomNumColor];
+  floaters.style.backgroundColor = randomColor;
+  floaters.style.top = `${randomNumTop}px`;
+  floaters.style.left = `${randomNumLeft}px`;
+  body.append(floaters);
+}
 
 
 function buildGrid (gridSize){

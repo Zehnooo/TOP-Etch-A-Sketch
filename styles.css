@@ -78,6 +78,8 @@ h6 {
 body {
   margin: 0 auto;
   padding: 0;
+  background-color: black;
+  font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond, Times New Roman, serif;
 }
 
 .container {
@@ -93,6 +95,7 @@ body {
 }
 
 .info-container {
+  color: white;
   margin: 15px auto;
   display: flex;
   align-items: center;
@@ -101,6 +104,7 @@ body {
 }
 
 .grid-container {
+  background-color: white;
   width: 960px;
   height: max-content;
   display: flex;
@@ -122,4 +126,22 @@ body {
 button {
   width: 125px;
   border-radius: 8px;
+}
+
+.floater {
+  z-index: -4;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+  will-change: transform;
+    animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(10px, 20px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
