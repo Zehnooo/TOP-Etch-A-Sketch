@@ -75,11 +75,27 @@ h6 {
 }
 /* End Reset */
 
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.info-container {
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .grid-container {
   width: 480px;
-  height: 400px;
+  height: max-content;
   display: flex;
   flex-flow: row wrap;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
 }
 
 .tile {
@@ -87,4 +103,6 @@ h6 {
   background: none;
   width: 30px;
   height: 30px;
+  margin: 0;
+  padding: 0;
 }
