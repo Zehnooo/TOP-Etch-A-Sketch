@@ -1,3 +1,9 @@
+const body = document.querySelector(".container");
+const newGridBtn = document.createElement("button");
+newGridBtn.textContent = "Change Grid";
+body.append(newGridBtn);
+
+
 const grid = document.querySelector(".grid-container");
 let defaultGridSize = 16;
 let tileCount = Math.pow(defaultGridSize, 2);
