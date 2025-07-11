@@ -2,7 +2,13 @@ const body = document.querySelector(".container");
 const newGridBtn = document.createElement("button");
 newGridBtn.textContent = "Change Grid";
 body.append(newGridBtn);
-
+newGridBtn.addEventListener("click", () => {
+  const gridSizeInput = parseInt(prompt("Enter new grid size (Default is 32)"));
+  console.log(gridSizeInput);
+  if (isNaN(gridSizeInput) || gridSizeInput > 100 || gridSizeInput < 0) {
+    alert("Input must be a whole number between 0 and 100");
+  }
+});
 
 const grid = document.querySelector(".grid-container");
 let defaultGridSize = 16;
