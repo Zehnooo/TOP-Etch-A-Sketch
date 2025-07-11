@@ -21,11 +21,11 @@ for (let i = 0; i < tileCount; i++) {
       const rgbaValues = background.match(/[\d.]+/g);
       let currentAlphaVal = parseFloat(rgbaValues[3]);
        if (!currentAlphaVal || isNaN(currentAlphaVal)){
-        console.log("opacity maxed");
+        
         return;
       }
       let newAlpha = Math.min(currentAlphaVal + .1, 1);
-      console.log(newAlpha);
+      
      
       const newRgba = `rgba(${rgbaValues[0]},${rgbaValues[1]},${rgbaValues[2]},${newAlpha})`;
       tile.style.backgroundColor = newRgba;
