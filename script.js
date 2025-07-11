@@ -58,7 +58,7 @@ function buildGrid (gridSize){
         
         return;
       }
-      let newAlpha = Math.min(currentAlphaVal + .2, 1);
+      let newAlpha = Math.min(currentAlphaVal + .1, 1);
       
      
       const newRgba = `rgba(${rgbaValues[0]},${rgbaValues[1]},${rgbaValues[2]},${newAlpha})`;
