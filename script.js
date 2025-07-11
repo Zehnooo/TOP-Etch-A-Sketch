@@ -1,23 +1,30 @@
+const colors = ["rgba(250, 231, 235, .1)","rgba(255, 212, 229, .1)","rgba(212, 255, 234, .1)","rgba(238, 203, 255, .1)","rgba(254, 255, 163, .1)","rgba(219, 220, 255, .1)"];
 const body = document.querySelector(".container");
+const grid = document.querySelector(".grid-container");
+let defaultGridSize = 16;
+let tiles = [];
+
 const newGridBtn = document.createElement("button");
 newGridBtn.textContent = "Change Grid";
 body.append(newGridBtn);
+
 newGridBtn.addEventListener("click", () => {
   const gridSizeInput = parseInt(prompt("Enter new grid size (Default is 32)"));
   console.log(gridSizeInput);
   if (isNaN(gridSizeInput) || gridSizeInput > 100 || gridSizeInput < 0) {
     alert("Input must be a whole number between 0 and 100");
   }
+  console.log(tiles);
+  for (const tile of tiles){
+    tile.style.backgroundColor = "";
+  }
+  buildGrid(gridSizeInput);
 });
 
-const grid = document.querySelector(".grid-container");
-let defaultGridSize = 16;
-let tileCount = Math.pow(defaultGridSize, 2);
 
-const colors = ["rgba(250, 231, 235, .1)","rgba(255, 212, 229, .1)","rgba(212, 255, 234, .1)","rgba(238, 203, 255, .1)","rgba(254, 255, 163, .1)","rgba(219, 220, 255, .1)"];
-
-
-for (let i = 0; i < tileCount; i++) {
+function buildGrid (gridSize){
+  let tileCount = Math.pow(defaultGridSize, 2);
+  for (let i = 0; i < tileCount; i++) {
   const tile = document.createElement("div");
   tile.classList.add("tile");
   grid.appendChild(tile);
@@ -36,7 +43,7 @@ for (let i = 0; i < tileCount; i++) {
         
         return;
       }
-      let newAlpha = Math.min(currentAlphaVal + .1, 1);
+      let newAlpha = Math.min(currentAlphaVal + .2, 1);
       
      
       const newRgba = `rgba(${rgbaValues[0]},${rgbaValues[1]},${rgbaValues[2]},${newAlpha})`;
@@ -45,4 +52,12 @@ for (let i = 0; i < tileCount; i++) {
     
    
   });
+  tiles.push(tile);
 }
+}
+
+
+buildGrid(defaultGridSize);
+
+
+
