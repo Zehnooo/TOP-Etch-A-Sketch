@@ -5,22 +5,26 @@ const body = document.querySelector(".container");
 const grid = document.querySelector(".grid-container");
 let defaultGridSize = 16;
 let tiles = [];
+let gridSizeInput;
 
 const newGridBtn = document.createElement("button");
 newGridBtn.textContent = "Change Grid";
 body.append(newGridBtn);
 
 newGridBtn.addEventListener("click", () => {
-  const gridSizeInput = parseInt(prompt("Enter new grid size (Default is 32)"));
-  console.log(gridSizeInput);
-  if (isNaN(gridSizeInput) || gridSizeInput > 100 || gridSizeInput < 0) {
+  let input = parseInt(prompt("Enter new grid size (Default is 16)"));
+
+  if (isNaN(input) || input > 100 || input < 0 || !input) {
     alert("Input must be a whole number between 0 and 100");
+    return;
   }
-  console.log(tiles);
   for (const tile of tiles){
     tile.style.backgroundColor = "";
   }
-  buildGrid(gridSizeInput);
+  defaultGridSize = input; 
+  grid.innerHTML = "";    
+  tiles = [];               
+  buildGrid(defaultGridSize);
 });
 
 for (let i = 0; i < 20; i++){
@@ -38,7 +42,8 @@ for (let i = 0; i < 20; i++){
 
 
 function buildGrid (gridSize){
-  let tileCount = Math.pow(defaultGridSize, 2);
+  let tileCount = gridSize * gridSize;
+
   for (let i = 0; i < tileCount; i++) {
   const tile = document.createElement("div");
   tile.classList.add("tile");
@@ -69,6 +74,7 @@ function buildGrid (gridSize){
   });
   tiles.push(tile);
 }
+ 
 }
 
 
