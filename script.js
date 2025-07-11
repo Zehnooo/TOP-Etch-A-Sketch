@@ -1,17 +1,18 @@
 const grid = document.querySelector(".grid-container");
-let defaultGridSize = 16
+let defaultGridSize = 16;
 let tileCount = Math.pow(defaultGridSize, 2);
 
 const colors = ["rgba(250, 231, 235, .1)","rgba(255, 212, 229, .1)","rgba(212, 255, 234, .1)","rgba(238, 203, 255, .1)","rgba(254, 255, 163, .1)","rgba(219, 220, 255, .1)"];
 
 
-for (i = 0; i < tileCount; i++) {
+for (let i = 0; i < tileCount; i++) {
   const tile = document.createElement("div");
   tile.classList.add("tile");
   grid.appendChild(tile);
   const randomNum = Math.floor(Math.random() * colors.length);
   const randomColor = colors[randomNum];
-  tile.addEventListener("mouseover", () => {
+  tile.addEventListener("mouseover", (e) => {
+    const tile = e.currentTarget;
     let background = tile.style.backgroundColor;
     
     if (!background){
@@ -19,7 +20,7 @@ for (i = 0; i < tileCount; i++) {
     } else {
       const rgbaValues = background.match(/[\d.]+/g);
       let currentAlphaVal = parseFloat(rgbaValues[3]);
-       if (!currentAlphaVal){
+       if (!currentAlphaVal || isNaN(currentAlphaVal)){
         console.log("opacity maxed");
         return;
       }

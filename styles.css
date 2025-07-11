@@ -89,7 +89,7 @@ body {
 }
 
 .grid-container {
-  width: 480px;
+  width: 960px;
   height: max-content;
   display: flex;
   flex-flow: row wrap;
