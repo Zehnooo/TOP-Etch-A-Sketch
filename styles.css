@@ -79,7 +79,8 @@ body {
   margin: 0 auto;
   padding: 0;
   background-color: black;
-  font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond, Times New Roman, serif;
+  font-family: Bodoni MT, Bodoni 72, Didot, Didot LT STD, Hoefler Text, Garamond,
+    Times New Roman, serif;
 }
 
 .container {
@@ -117,8 +118,8 @@ body {
 .tile {
   border: 1px solid grey;
   background: none;
-  width: 30px;
-  height: 30px;
+  flex: 0 0 var(--tile-size);
+  height: var(--tile-size);
   margin: 0;
   padding: 0;
 }
@@ -137,11 +138,17 @@ button {
   filter: blur(2px);
   pointer-events: none;
   will-change: transform;
-    animation: float 10s ease-in-out infinite alternate;
+  animation: float 10s ease-in-out infinite alternate;
 }
 
 @keyframes float {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(10px, 20px) rotate(5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10px, 20px) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
