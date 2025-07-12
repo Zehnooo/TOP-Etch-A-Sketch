@@ -56,7 +56,7 @@ for (let i = 0; i < 20; i++) {
 
 function buildGrid(gridSize) {
   let tileCount = gridSize * gridSize;
-  const containerWidth = grid.clientWidth;
+  const containerWidth = 600;
   const tileSize = Math.floor(containerWidth / gridSize);
   grid.style.setProperty("--tile-size", `${tileSize}px`);
   for (let i = 0; i < tileCount; i++) {
